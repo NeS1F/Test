@@ -7,8 +7,8 @@ def send_welcome(message):
 def get_text_messages(message):
     if message.text.lower() == 'привет' or message.text.lower() == 'привіт' or message.text.lower() == 'hello':
         bot.send_message(message.from_user.id, 'Привіт!')
-    elsif message.text.lower() == 'my':
-        bot.send_message(message.from_user.id, 'my little familyy group member =) ('^_^') (=
+    elif message.text.lower() == 'my':
+        bot.send_message(message.from_user.id, 'my little familyy group member =) ('^_^') (='
     else:
         bot.send_message(message.from_user.id, 'Я ще маленький і вмійю тільки вітатися. Привіт =) ')
 bot.polling(none_stop=True)
