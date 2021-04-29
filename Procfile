@@ -1,1 +1,1 @@
-bot: python CalibrationBot.py
+web: python CalibrationBot.py
