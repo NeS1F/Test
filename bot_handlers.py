@@ -6,11 +6,11 @@ from db import users_db
 @bot.message_handler(commands=['start', 'help'])
 # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
-    if not users_db.find_one({"chat_id": message.chat.id}):
-        users_db.insert_one({"chat_id" : message.chat.id})
+    #if not users_db.find_one({"chat_id": message.chat.id}):
+        #users_db.insert_one({"chat_id" : message.chat.id})
         bot.reply_to(message, f'{HELLO_MESSAGE}, {message.from_user.first_name}')
-    else:
-        bot.send_message(message.chat.id, HELLO_AGAIN_MESSAGE)
+    #else:
+        #bot.send_message(message.chat.id, HELLO_AGAIN_MESSAGE)
 
 
 @bot.message_handler(content_types=['text'])
