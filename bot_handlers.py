@@ -1,11 +1,14 @@
 from bot import bot # Импортируем объект бота
 from messages import * # Инмпортируем все с файла сообщений
+from db import users_db
 
 
 @bot.message_handler(commands=['start', 'help'])
 # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
     bot.reply_to(message, f'{HELLO_MESSAGE}, {message.from_user.first_name}')
+    if not users_db.find_one({"chat_id": message.chat.id}):
+        users_db.insert_one({"chat_id" : message.chat.id})
 
 
 @bot.message_handler(content_types=['text'])
