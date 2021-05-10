@@ -1,2 +1,1 @@
-web: python CalibrationBot.py
-bot: python CalibrationBot.py
+web: gunicorn run_server:server
