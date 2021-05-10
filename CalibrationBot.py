@@ -1,4 +1,3 @@
-pip install pytelegrambotapi
 import telebot
 bot = telebot.TeleBot('1713086812:AAHhAQEOyZ8FXHPmlf3O8D9yVFN1iaGk3TA')
 @bot.message_handler(commands=['start', 'help'])
