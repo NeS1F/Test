@@ -1,0 +1,25 @@
+from bot import bot # Импортируем объект бота
+from messages import * # Инмпортируем все с файла сообщений
+
+
+@bot.message_handler(commands=['start', 'help'])
+# Выполняется, когда пользователь нажимает на start
+def send_welcome(message):
+    bot.reply_to(message, f'{HELLO_MESSAGE}, {message.from_user.first_name}')
+
+
+@bot.message_handler(content_types=['text'])
+def get_text_messages(message):
+    if message.text.lower() == 'привет' or message.text.lower() == 'привіт' or message.text.lower() == 'hello':
+        bot.send_message(message.from_user.id, 'Привіт!')
+    else:
+        bot.send_message(message.from_user.id, 'Я ще маленький і вмійю тільки вітатися. Привіт')
+
+
+@bot.message_handler(content_types=["text"]) # Любой текст
+def repeat_all_messages(message):
+    bot.send_message(message.chat.id, message.text)
+
+
+if __name__ == '__main__':
+     bot.polling(none_stop=True)
