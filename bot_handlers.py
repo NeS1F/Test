@@ -7,7 +7,7 @@ from db import users_db
 # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
     if not users_db.find_one({'chat_id': message.chat.id}):
-        users_db.insert_one({'chat_id': message.chat.id}, {'chat_id': message.chat.username})
+        users_db.insert_one({'chat_id': message.chat.id}, {'chat_id': message.username})
         bot.reply_to(message, f'{HELLO_MESSAGE}, {message.from_user.first_name}')
     else:
         bot.send_message(message.chat.id, HELLO_AGAIN_MESSAGE)
@@ -21,9 +21,9 @@ def get_text_messages(message):
         bot.send_message(message.from_user.id, 'Я ще маленький і вмійю тільки вітатися. Привіт')
 
 
-@bot.message_handler(content_types=['text']) # Любой текст
-def repeat_all_messages(message):
-    bot.send_message(message.chat.id, message.text)
+#@bot.message_handler(content_types=['text']) # Любой текст
+#def repeat_all_messages(message):
+#    bot.send_message(message.chat.id, message.text)
 
 
 if __name__ == '__main__':
