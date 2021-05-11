@@ -13,28 +13,6 @@ def send_welcome(message):
         bot.send_message(message.chat.id, HELLO_AGAIN_MESSAGE)
 
 
-@bot.message_handler(commands=['toeveryone'])
-# Выполняется, когда пользователь нажимает на toeveryone
-def get_text_messages(message)::
-    if message.chat.id != 396751749:
-        bot.reply_to(message, f'{DENY}, {message.from_user.first_name}')
-    else:
-        def get_text_messages(message):
-            if message.text.lower() !=''
-	       input_message = message.text.lower()
-	       def send_message_to_all_users(message: str):
-               # Функция для рассылки, принимает сообщение
-               if message != '':
-                   # Перебираем всех пользователей в бд
-                   for user in users_db.find():
-                       # Пытаемся отправить сообщение
-                       try:
-                           bot.send_message(user['chat_id'], message)
-                       # Если какая-то ошибка - выводим это
-                       except Exception as e:
-                           bot.reply_to(message, f'{ERROR}')
-
-
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
     if message.text.lower() in ['привет', 'привіт', 'hello', 'здоров', 'hi', 'hola']:
