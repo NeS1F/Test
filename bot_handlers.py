@@ -15,8 +15,10 @@ def send_welcome(message):
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
-    if message.text.lower() == 'привет' or message.text.lower() == 'привіт' or message.text.lower() == 'hello':
+    if message.text.lower() in ['привет', 'привіт', 'hello', 'здоров', 'hi', 'hola']:
         bot.send_message(message.from_user.id, 'Привіт!')
+    elif message.text.lower() in ['блять', 'fuck', 'сука', 'пизда', 'хуй', 'бля', 'шалава', 'блядь']:
+        bot.send_message(message.from_user.id, 'УУУ хтось хоче получити по онлайн їбалу -_-')
     else:
         bot.send_message(message.from_user.id, 'Я ще маленький і вмійю тільки вітатися. Привіт')
 
