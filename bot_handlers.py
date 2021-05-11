@@ -17,8 +17,10 @@ def send_welcome(message):
 def get_text_messages(message):
     if message.text.lower() in ['привет', 'привіт', 'hello', 'здоров', 'hi', 'hola']:
         bot.send_message(message.from_user.id, 'Привіт!')
-    elif message.text.lower() in ['блять', 'fuck', 'сука', 'пизда', 'хуй', 'бля', 'шалава', 'блядь']:
+    elif message.text.lower() in ['блять', 'fuck', 'сука', 'пизда', 'хуй', 'бля', 'шалава', 'блядь', 'нахуй', 'мудак', 'підарас', 'підар', 'підор', 'підарасіна', 'псіна', 'псіна сутула']:
         bot.send_message(message.from_user.id, 'УУУ хтось хоче получити по онлайн їбалу -_-')
+    elif message.text.lower() in ['nigger', 'nigga', 'ніга', 'нігер']:
+        bot.send_message(message.from_user.id, 'Тссс! Твітч почує))')
     else:
         bot.send_message(message.from_user.id, 'Я ще маленький і вмійю тільки вітатися. Привіт')
 
