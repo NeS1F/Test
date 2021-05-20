@@ -3,6 +3,7 @@ from messages import * # Инмпортируем все с файла сооб�
 from db import users_db
 
 
+
 @bot.message_handler(commands=['start', 'help'])
 # Выполняется, когда пользователь нажимает на start
 def send_welcome(message):
@@ -11,6 +12,7 @@ def send_welcome(message):
         bot.reply_to(message, f'{HELLO_MESSAGE}, {message.from_user.first_name}')
     else:
         bot.send_message(message.chat.id, HELLO_AGAIN_MESSAGE)
+
 
 
 @bot.message_handler(content_types=['text'])
